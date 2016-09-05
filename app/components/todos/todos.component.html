@@ -1,4 +1,26 @@
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jonathan Todos List</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+<br>
+<br>
+<br>
+
+
 <div class="add-todo-form text-center">
   <h1>My todos list</h1>
   <h3>What needs to be done?</h3>
@@ -27,10 +49,14 @@
     </div>
 
     <div class="col-md-7">
-         <span class="done-{{todo.isCompleted}}">{{todo.text}}</span>
+         <p><span class="done-{{todo.isCompleted}}">{{todo.text}}</span></p>
     </div>
 
     <div class="col-md-4 btns">
         <input type="button" class="btn btn-danger pull-right" (click)="removeTodo(todo)" value="Delete">
     </div>
   </div>
+
+  <footer>
+      <p>&copy; WDI 4 Individual Assignment done with Angular 2, 2016</p>
+    </footer>
