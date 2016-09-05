@@ -30,11 +30,11 @@ export class TodosComponent {
   }
 
   addTodo(newtodo: HTMLInputElement, isCompleted) {
-    console.log('Adding todo: ${newtodo.value}');
+
     var newTask = newtodo.value;
     this.todos.push(new Todo(newTask));
     newtodo.value = "";
-    alert(newTask);
+  
   }
 
 
@@ -45,6 +45,17 @@ export class TodosComponent {
      }
   }
 
+  get remaining() {
+      return this.todos.reduce((count: number, todo: Todo) => count + +!todo.isCompleted, 0);
+    }
+
+    archive(): void {
+      var oldTodos = this.todos;
+      this.todos = [];
+      oldTodos.forEach((todo: Todo) => {
+        if (!todo.isCompleted) this.todos.push(todo);
+      });
+    }
 
 
 

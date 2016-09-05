@@ -1,7 +1,8 @@
 
 <div class="add-todo-form text-center">
   <h1>What needs to be done?</h1>
-  <h3>Total number of tasks: {{todos.length}}</h3>
+  <h3>Tasks remaining for the day: {{ remaining }} out of {{todos.length}}</h3>
+
   <div class="form-group">
     <input class="form-control input-lg" placeholder="add todos..." autofocus #newtodo>
     <br>
@@ -12,8 +13,8 @@
 
 <!-- This div will always be hidden as long there is no todos, hence hiden when todos.length > 0 -->
 <div class="todo-list">
-    <div class="alert-info text-center"[hidden]="todos.length > 0">
-      <h2>it's empty!</h2>
+    <div id="emptybox" class="alert-info text-center"[hidden]="todos.length > 0">
+      <h2 id="emptytext">it's empty!</h2>
     </div>
 
 

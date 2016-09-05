@@ -21,17 +21,31 @@ var TodosComponent = (function () {
         this.todos = [];
     }
     TodosComponent.prototype.addTodo = function (newtodo, isCompleted) {
-        console.log('Adding todo: ${newtodo.value}');
         var newTask = newtodo.value;
         this.todos.push(new Todo(newTask));
         newtodo.value = "";
-        alert(newTask);
     };
     TodosComponent.prototype.removeTodo = function (todo) {
         var index = this.todos.indexOf(todo, 0);
         if (index !== undefined) {
             this.todos.splice(index, 1);
         }
+    };
+    Object.defineProperty(TodosComponent.prototype, "remaining", {
+        get: function () {
+            return this.todos.reduce(function (count, todo) { return count + +!todo.isCompleted; }, 0);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TodosComponent.prototype.archive = function () {
+        var _this = this;
+        var oldTodos = this.todos;
+        this.todos = [];
+        oldTodos.forEach(function (todo) {
+            if (!todo.isCompleted)
+                _this.todos.push(todo);
+        });
     };
     TodosComponent = __decorate([
         core_1.Component({

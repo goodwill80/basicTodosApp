@@ -6,3 +6,12 @@
 border: 1px dashed black;
 background-color: #eee;
 }
+
+#emptybox{
+  height: 200px;
+  text-align: center;
+}
+
+#emptytext{
+  margin-top: 60px;
+}
