@@ -5,7 +5,7 @@
   <div class="form-group">
     <input class="form-control input-lg" placeholder="add todos..." autofocus #newtodo>
     <br>
-    <button (click)="addTodo($event, newtodo)" class="btn btn-primary btn-block">Create</button>
+    <button (click)="addTodo(newtodo, isCompleted)" class="btn btn-primary btn-block">Create</button>
   </div>
 </div>
 
@@ -18,18 +18,15 @@
 
 
     <div *ngFor="let todo of todos">
-
     <div class="col-md-1">
-      <input type="checkbox" [checked]="todo.isCompleted" (click)="updateStatus(todo.text)">
+    <input type="checkbox" [(ngModel)]="todo.isCompleted">
     </div>
 
     <div class="col-md-7">
-        <p>{{todo.text}}</p>
+         <span class="done-{{todo.isCompleted}}">{{todo.text}}</span>
     </div>
 
     <div class="col-md-4 btns">
         <input type="button" class="btn btn-danger pull-right" (click)="removeTodo(todo)" value="Delete">
-  
     </div>
-
   </div>

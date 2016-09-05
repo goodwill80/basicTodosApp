@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
-// import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
 class Todo {
   text: string;
   isCompleted: boolean;
-  completedTasks: number;
 
-  constructor(text: string, isCompleted: boolean, completedTasks?: number){
+  constructor(text: string, isCompleted: boolean){
     this.text = text;
-    this.isCompleted;
-    this.completedTasks = completedTasks || 0;
+    this.isCompleted = isCompleted;
   }
-
 
 
 }
@@ -24,7 +20,6 @@ class Todo {
   selector: 'todos',
   styleUrls: ['todos.component.css'],
   templateUrl: 'todos.component.html',
-  // directives:[ ROUTER_DIRECTIVES ]
 })
 
 
@@ -34,20 +29,14 @@ export class TodosComponent {
     this.todos = [];
   }
 
-  addTodo($event, newtodo: HTMLInputElement) {
+  addTodo(newtodo: HTMLInputElement, isCompleted) {
     console.log('Adding todo: ${newtodo.value}');
     var newTask = newtodo.value;
     this.todos.push(new Todo(newTask));
     newtodo.value = "";
+    alert(newTask);
   }
 
-  updateStatus(todo){
-    var completed = {
-      text: todo.text,
-      isCompleted: !todo.isCompleted
-    }
-      todo = completed;
-  }
 
   removeTodo(todo) : void {
      var index = this.todos.indexOf(todo, 0);

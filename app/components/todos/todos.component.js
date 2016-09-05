@@ -9,12 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { ROUTER_DIRECTIVES } from '@angular/router';
 var Todo = (function () {
-    function Todo(text, isCompleted, completedTasks) {
+    function Todo(text, isCompleted) {
         this.text = text;
-        this.isCompleted;
-        this.completedTasks = completedTasks || 0;
+        this.isCompleted = isCompleted;
     }
     return Todo;
 }());
@@ -22,18 +20,12 @@ var TodosComponent = (function () {
     function TodosComponent() {
         this.todos = [];
     }
-    TodosComponent.prototype.addTodo = function ($event, newtodo) {
+    TodosComponent.prototype.addTodo = function (newtodo, isCompleted) {
         console.log('Adding todo: ${newtodo.value}');
         var newTask = newtodo.value;
         this.todos.push(new Todo(newTask));
         newtodo.value = "";
-    };
-    TodosComponent.prototype.updateStatus = function (todo) {
-        var completed = {
-            text: todo.text,
-            isCompleted: !todo.isCompleted
-        };
-        todo = completed;
+        alert(newTask);
     };
     TodosComponent.prototype.removeTodo = function (todo) {
         var index = this.todos.indexOf(todo, 0);
