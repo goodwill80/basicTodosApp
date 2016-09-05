@@ -8,10 +8,16 @@ background-color: #eee;
 }
 
 #emptybox{
-  height: 200px;
+  height: 400px;
   text-align: center;
 }
 
 #emptytext{
   margin-top: 60px;
+}
+
+img{
+  height: 200px;
+  width: 170px;
+  align-content: center;
 }

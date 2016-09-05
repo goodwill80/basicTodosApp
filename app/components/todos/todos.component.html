@@ -1,7 +1,8 @@
 
 <div class="add-todo-form text-center">
-  <h1>What needs to be done?</h1>
-  <h3>Tasks remaining for the day: {{ remaining }} out of {{todos.length}}</h3>
+  <h1>My todos list</h1>
+  <h3>What needs to be done?</h3>
+  <h4>Tasks remaining for the day: {{ remaining }} out of {{todos.length}}</h4>
 
   <div class="form-group">
     <input class="form-control input-lg" placeholder="add todos..." autofocus #newtodo>
@@ -14,7 +15,9 @@
 <!-- This div will always be hidden as long there is no todos, hence hiden when todos.length > 0 -->
 <div class="todo-list">
     <div id="emptybox" class="alert-info text-center"[hidden]="todos.length > 0">
-      <h2 id="emptytext">it's empty!</h2>
+      <h2 id="emptytext">There are no pending tasks</h2>
+      <p>Please key in your tasks for the day and checked whatever tasks that has been completed</p>
+      <img src="http://tryangular2.github.io/img/angular-shield.png">
     </div>
 
 
